@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+
+    <!-- tiptap 설정 -->
+    <style>
+      /* Basic editor styles */
+      .ProseMirror {
+        min-width: max-content;
+        padding: 10px;
+      }
+      .ProseMirror > * + * {
+        margin-top: 0.75em;
+      }
+      .ProseMirror ul {
+        padding: 0 1rem;
+        list-style: disc;
+      }
+      .ProseMirror ol {
+        padding: 0 1rem;
+        list-style: decimal;
+      }
+      .ProseMirror h1 {
+        line-height: 1.1;
+        font-size: xx-large;
+      }
+
+      .ProseMirror h2 {
+        line-height: 1.1;
+        font-size: x-large;
+      }
+
+      .ProseMirror h3 {
+        line-height: 1.1;
+        font-size: larger;
+      }
+
+      .ProseMirror code {
+        background-color: rgba(97, 97, 97, 0.1);
+        color: #616161;
+      }
+      .ProseMirror pre {
+        background: #0d0d0d;
+        color: #fff;
+        font-family: "JetBrainsMono", monospace;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+      }
+      .ProseMirror pre code {
+        color: inherit;
+        padding: 0;
+        background: none;
+        font-size: 0.8rem;
+      }
+      .ProseMirror img {
+        max-width: 100%;
+        height: auto;
+      }
+      .ProseMirror blockquote {
+        padding-left: 1rem;
+        border-left: 2px solid rgba(13, 13, 13, 0.1);
+      }
+      .ProseMirror hr {
+        border: none;
+        border-top: 2px solid rgba(13, 13, 13, 0.1);
+        margin: 2rem 0;
+      }
+      /* Table-specific styling */
+      .ProseMirror table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        /* width: 100%; */
+        width: 400px;
+        margin: 0;
+        overflow: hidden;
+      }
+      .ProseMirror table td,
+      .ProseMirror table th {
+        min-width: 1em;
+        border: 2px solid #afacac;
+        padding: 3px 5px;
+        vertical-align: top;
+        box-sizing: border-box;
+        position: relative;
+      }
+      .ProseMirror table td > *,
+      .ProseMirror table th > * {
+        margin-bottom: 0;
+      }
+      .ProseMirror table th {
+        font-weight: bold;
+        text-align: left;
+        background-color: #e7e9eb;
+      }
+      .ProseMirror table .selectedCell:after {
+        z-index: 2;
+        position: absolute;
+        content: "";
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(200, 200, 255, 0.4);
+        pointer-events: none;
+      }
+      .ProseMirror table .column-resize-handle {
+        position: absolute;
+        right: -2px;
+        top: 0;
+        bottom: -2px;
+        width: 4px;
+        background-color: #adf;
+        pointer-events: none;
+      }
+      .tableWrapper {
+        overflow-x: auto;
+      }
+      .resize-cursor {
+        cursor: ew-resize;
+        cursor: col-resize;
+      }
+    </style>
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>PT Interview</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
