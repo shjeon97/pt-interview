@@ -20,8 +20,8 @@ import {
   IEditTesterInput,
 } from "./type";
 
-axios.defaults.baseURL = "http://localhost:4000/";
-// axios.defaults.baseURL = "https://ptinvtest.insahr.co.kr/";
+// axios.defaults.baseURL = "http://localhost:4000/";
+axios.defaults.baseURL = "https://pt-interview.back-end.kro.kr/";
 
 export const apiMe = async () => {
   return axios

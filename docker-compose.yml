@@ -1,0 +1,25 @@
+version: "3"
+services:
+  frontend:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./frontend
+    image: shjeon97/pt-interview-frontend:1.0.0
+    container_name: pt-interview-frontend
+    ports:
+      - "3004:3000"
+
+  backend:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./backend
+    image: shjeon97/pt-interview-backend:1.0.0
+    container_name: pt-interview-backend
+    volumes:
+      - /main/public/pt-interview/upload:/public/upload
+    env_file:
+      - ./backend/.env.prod
+    ports:
+      - "4004:4000"
