@@ -24,12 +24,12 @@ jobs:
       - name: pt-interview pull
         run: |
           git pull origin master
-        working-directory: ../../../../server/pt-interview
+        working-directory: ../../../../../server/pt-interview
 
       - name: pt-interview docker restart
         run: |
           docker compose up --build -d
-        working-directory: ../../../../server/pt-interview
+        working-directory: ../../../../../server/pt-interview
 
       - name: pt-interview docker old image delete
         run: |
