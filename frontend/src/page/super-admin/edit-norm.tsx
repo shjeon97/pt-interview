@@ -110,12 +110,12 @@ export const EditNorm = () => {
           className="col-start-2 row-end-auto border border-gray-400 shadow-inner focus:ring-2 focus:ring-cyan-400 focus: outline-none   py-2 px-3 rounded-md "
         />
         <div className="col-start-1 row-end-auto">
-          {errors.name?.message && (
+          {typeof errors.name?.message === "string" && (
             <FormError errorMessage={errors.name?.message} />
           )}
         </div>
         <div className="col-start-2 row-end-auto">
-          {errors.timeLimit?.message && (
+          {typeof errors.timeLimit?.message === "string" && (
             <FormError errorMessage={errors.timeLimit?.message} />
           )}
         </div>
@@ -125,7 +125,7 @@ export const EditNorm = () => {
             loading={editNormMutation.isLoading}
             actionText={"규준 수정"}
           />
-          {editNormMutation?.data?.error && (
+          {typeof editNormMutation?.data?.error === "string" && (
             <FormError errorMessage={editNormMutation.data.error} />
           )}
         </div>

@@ -141,12 +141,12 @@ export const EditTester = () => {
             className="col-start-2 row-end-2 border border-gray-400 shadow-inner focus:ring-2 focus:ring-cyan-400 focus: outline-none   py-2 px-3 rounded-md "
           />
           <div className="col-start-1 row-end-3">
-            {errors.name?.message && (
+            {typeof errors.name?.message === "string" && (
               <FormError errorMessage={errors.name?.message} />
             )}
           </div>
           <div className="col-start-2 row-end-3">
-            {errors.password?.message && (
+            {typeof errors.password?.message === "string" && (
               <FormError errorMessage={errors.password?.message} />
             )}
           </div>
@@ -199,7 +199,7 @@ export const EditTester = () => {
               loading={editTesterMutation.isLoading}
               actionText={"지원자 수정"}
             />
-            {editTesterMutation?.data?.error && (
+            {typeof editTesterMutation?.data?.error === "string" && (
               <FormError errorMessage={editTesterMutation.data.error} />
             )}
           </div>

@@ -119,12 +119,12 @@ export const CreateTester = () => {
         />
 
         <div className="col-start-1 row-end-auto">
-          {errors.name?.message && (
+          {typeof errors.name?.message === "string" && (
             <FormError errorMessage={errors.name?.message} />
           )}
         </div>
         <div className="col-start-2 row-end-auto">
-          {errors.password?.message && (
+          {typeof errors.password?.message === "string" && (
             <FormError errorMessage={errors.password?.message} />
           )}
         </div>
@@ -173,7 +173,7 @@ export const CreateTester = () => {
             loading={createTesterMutation.isLoading}
             actionText={"지원자 등록"}
           />
-          {createTesterMutation?.data?.error && (
+          {typeof createTesterMutation?.data?.error === "string" && (
             <FormError errorMessage={createTesterMutation.data.error} />
           )}
         </div>

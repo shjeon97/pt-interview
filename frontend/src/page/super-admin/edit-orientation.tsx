@@ -129,7 +129,7 @@ export const EditOrientation = () => {
                 className="col-start-1 col-end-13 row-end-auto form-control w-full border border-solid border-gray-300 rounded transition hover:text-gray-600 hover:bg-gray-200 "
                 type="file"
               />
-              {errors.file?.message && (
+              {typeof errors.file?.message === "string" && (
                 <div className="col-start-1 col-end-13 row-end-auto">
                   <FormError errorMessage={errors.file?.message} />
                 </div>
@@ -152,7 +152,8 @@ export const EditOrientation = () => {
                           ? "등록"
                           : "Loading"}
                       </div>
-                      {editOrientationMutation?.data?.error && (
+                      {typeof editOrientationMutation?.data?.error ===
+                        "string" && (
                         <FormError
                           errorMessage={editOrientationMutation.data.error}
                         />

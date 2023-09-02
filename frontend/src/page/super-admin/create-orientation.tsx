@@ -146,7 +146,7 @@ export const CreateOrientation = () => {
               className="col-start-1 col-end-13 row-end-auto form-control w-full border border-solid border-gray-300 rounded transition hover:text-gray-600 hover:bg-gray-200 "
               type="file"
             />
-            {errors.file?.message && (
+            {typeof errors.file?.message === "string" && (
               <div className="row-start-3">
                 <FormError errorMessage={errors.file?.message} />
               </div>
@@ -166,7 +166,8 @@ export const CreateOrientation = () => {
                   >
                     {!createOrientationMutation.isLoading ? "등록" : "Loading"}
                   </div>
-                  {createOrientationMutation?.data?.error && (
+                  {typeof createOrientationMutation?.data?.error ===
+                    "string" && (
                     <FormError
                       errorMessage={createOrientationMutation.data.error}
                     />

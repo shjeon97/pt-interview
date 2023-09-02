@@ -128,7 +128,7 @@ export const EditQuestion = () => {
                 className="col-start-1 col-end-13 row-end-auto form-control w-full border border-solid border-gray-300 rounded transition hover:text-gray-600 hover:bg-gray-200 "
                 type="file"
               />
-              {errors.file?.message && (
+              {typeof errors.file?.message === "string" && (
                 <div className="col-start-1 col-end-13 row-end-auto">
                   <FormError errorMessage={errors.file?.message} />
                 </div>
@@ -149,7 +149,8 @@ export const EditQuestion = () => {
                       >
                         {!editQuestionMutation.isLoading ? "등록" : "Loading"}
                       </div>
-                      {editQuestionMutation?.data?.error && (
+                      {typeof editQuestionMutation?.data?.error ===
+                        "string" && (
                         <FormError
                           errorMessage={editQuestionMutation.data.error}
                         />

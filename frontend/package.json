@@ -16,6 +16,7 @@
     "@tiptap/extension-table-row": "^2.0.0-beta.19",
     "@tiptap/extension-text-align": "^2.0.0-beta.29",
     "@tiptap/extension-underline": "^2.0.0-beta.22",
+    "@tiptap/pm": "^2.1.7",
     "@tiptap/react": "^2.0.0-beta.104",
     "@tiptap/starter-kit": "^2.0.0-beta.168",
     "@types/jest": "^26.0.24",
@@ -40,10 +41,10 @@
     "xlsx": "^0.17.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start:dev": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "start:dev": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -138,13 +138,13 @@ export const CreateAdmin = () => {
           />
 
           <div className="col-start-1  row-end-3">
-            {errors.name?.message && (
+            {typeof errors.name?.message === "string" && (
               <FormError errorMessage={errors.name?.message} />
             )}
           </div>
 
           <div className="col-start-2  row-end-3">
-            {errors.password?.message && (
+            {typeof errors.password?.message === "string" && (
               <FormError errorMessage={errors.password?.message} />
             )}
           </div>
@@ -216,7 +216,7 @@ export const CreateAdmin = () => {
               loading={createAdminMutation.isLoading}
               actionText={"면접위원 등록"}
             />
-            {createAdminMutation?.data?.error && (
+            {typeof createAdminMutation?.data?.error === "string" && (
               <FormError errorMessage={createAdminMutation.data.error} />
             )}
           </div>

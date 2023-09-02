@@ -371,15 +371,17 @@ export const DetailGroup = () => {
                   </div>
                 </div>
                 <div className="bg-gray-300 px-4 py-2  flex flex-row-reverse">
-                  {detailTester && data && data.role === UserRole.SuperAdmin && (
-                    <div className="w-20 ">
-                      <FormButton
-                        canClick={isValid}
-                        loading={editTesterMutation.isLoading}
-                        actionText={"변경"}
-                      />
-                    </div>
-                  )}
+                  {detailTester &&
+                    data &&
+                    data.role === UserRole.SuperAdmin && (
+                      <div className="w-20 ">
+                        <FormButton
+                          canClick={isValid}
+                          loading={editTesterMutation.isLoading}
+                          actionText={"변경"}
+                        />
+                      </div>
+                    )}
 
                   <button
                     onClick={() => {

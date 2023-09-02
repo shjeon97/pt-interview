@@ -72,7 +72,7 @@ export const AdminLogin = () => {
             required
             className="text-center bg-gray-100 shadow-inner focus:ring-2 focus:ring-gray-400 focus: outline-none my-1  py-3 px-3 rounded-md "
           />
-          {errors.name?.message && (
+          {typeof errors.name?.message === "string" && (
             <FormError errorMessage={errors.name?.message} />
           )}
           <input
@@ -84,7 +84,7 @@ export const AdminLogin = () => {
             required
             className="text-center bg-gray-100 shadow-inner focus:ring-2 focus:ring-gray-400 focus: outline-none my-1  py-3 px-3 rounded-md "
           />
-          {errors.password?.message && (
+          {typeof errors.password?.message === "string" && (
             <FormError errorMessage={errors.password?.message} />
           )}
           <FormButton
@@ -92,7 +92,7 @@ export const AdminLogin = () => {
             loading={loginMutation.isLoading}
             actionText={"접속"}
           />
-          {loginMutation.data?.error && (
+          {typeof loginMutation.data?.error === "string" && (
             <FormError errorMessage={loginMutation.data.error} />
           )}
         </form>

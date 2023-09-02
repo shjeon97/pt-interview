@@ -106,12 +106,12 @@ export const CreateGroup = () => {
           </select>
 
           <div className="col-start-1  row-end-3 ">
-            {errors.name?.message && (
+            {typeof errors.name?.message === "string" && (
               <FormError errorMessage={errors.name?.message} />
             )}
           </div>
           <div className="col-start-2  row-end-3 ">
-            {errors.normId?.message && (
+            {typeof errors.normId?.message === "string" && (
               <FormError errorMessage={errors.normId?.message} />
             )}
           </div>
@@ -135,12 +135,12 @@ export const CreateGroup = () => {
           />
 
           <div className="col-start-1  row-end-6 ">
-            {errors.startDate?.message && (
+            {typeof errors.startDate?.message === "string" && (
               <FormError errorMessage={errors.startDate?.message} />
             )}
           </div>
           <div className="col-start-2  row-end-6 ">
-            {errors.startTime?.message && (
+            {typeof errors.startTime?.message === "string" && (
               <FormError errorMessage={errors.startTime?.message} />
             )}
           </div>
@@ -165,12 +165,12 @@ export const CreateGroup = () => {
           />
 
           <div className="col-start-1  row-end-9 ">
-            {errors.endDate?.message && (
+            {typeof errors.endDate?.message === "string" && (
               <FormError errorMessage={errors.endDate?.message} />
             )}
           </div>
           <div className="col-start-2  row-end-9 ">
-            {errors.endTime?.message && (
+            {typeof errors.endTime?.message === "string" && (
               <FormError errorMessage={errors.endTime?.message} />
             )}
           </div>
@@ -181,7 +181,7 @@ export const CreateGroup = () => {
               loading={createGroupMutation.isLoading}
               actionText={"공고 등록"}
             />{" "}
-            {createGroupMutation?.data?.error && (
+            {typeof createGroupMutation?.data?.error === "string" && (
               <FormError errorMessage={createGroupMutation.data.error} />
             )}
           </div>

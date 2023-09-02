@@ -89,12 +89,12 @@ export const CreateNorm = () => {
         />
 
         <div className="col-start-1 row-end-auto">
-          {errors.name?.message && (
+          {typeof errors.name?.message === "string" && (
             <FormError errorMessage={errors.name?.message} />
           )}
         </div>
         <div className="col-start-2 row-end-auto">
-          {errors.timeLimit?.message && (
+          {typeof errors.timeLimit?.message === "string" && (
             <FormError errorMessage={errors.timeLimit?.message} />
           )}
         </div>
@@ -104,7 +104,7 @@ export const CreateNorm = () => {
             loading={createNormMutation.isLoading}
             actionText={"규준 추가"}
           />
-          {createNormMutation?.data?.error && (
+          {typeof createNormMutation?.data?.error === "string" && (
             <FormError errorMessage={createNormMutation.data.error} />
           )}
         </div>

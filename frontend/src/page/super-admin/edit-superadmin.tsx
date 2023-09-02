@@ -112,12 +112,12 @@ export const EditSuperAdmin = () => {
             className="col-start-2 row-end-auto border border-gray-400 shadow-inner focus:ring-2 focus:ring-cyan-400 focus: outline-none   py-2 px-3 rounded-md "
           />
           <div className="col-start-1 row-end-auto">
-            {errors.name?.message && (
+            {typeof errors.name?.message === "string" && (
               <FormError errorMessage={errors.name?.message} />
             )}
           </div>
           <div className="col-start-2 row-end-auto">
-            {errors.password?.message && (
+            {typeof errors.password?.message === "string" && (
               <FormError errorMessage={errors.password?.message} />
             )}
           </div>
@@ -153,10 +153,10 @@ export const EditSuperAdmin = () => {
               loading={editAdminMutation.isLoading}
               actionText={"관리자 수정"}
             />
-            {editAdminMutation?.data?.error && (
+            {typeof editAdminMutation?.data?.error === "string" && (
               <FormError errorMessage={editAdminMutation.data.error} />
             )}
-            {loginMutation.data?.error && (
+            {typeof loginMutation.data?.error === "string" && (
               <FormError errorMessage={loginMutation.data.error} />
             )}
           </div>
