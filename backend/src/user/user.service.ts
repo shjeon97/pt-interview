@@ -28,17 +28,23 @@ import { MarkService } from 'src/mark/mark.service';
 import { EditTesterInput, EditTesterOutput } from './dto/edit-tester.dto.';
 import { SocketIoRepository } from 'src/socket-io/repository/socket-io.repository';
 import { SocketIoGateway } from 'src/socket-io/socket-io.gateway';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Mark } from 'src/mark/entity/mark.entity';
+import { SocketIo } from 'src/socket-io/entity/socket-io.entity';
+import { UserLoginSession } from './entity/user-login-session.entity';
 
 @Injectable()
 export class UserService {
   constructor(
-    private readonly user: UserRepository,
-    private readonly group: GroupRepository,
-    private readonly mark: MarkRepository,
+    @InjectRepository(User) private readonly user: UserRepository,
+    @InjectRepository(Group) private readonly group: GroupRepository,
+    @InjectRepository(Mark) private readonly mark: MarkRepository,
     private readonly authService: AuthService,
-    private readonly socketIo: SocketIoRepository,
+    @InjectRepository(SocketIo) private readonly socketIo: SocketIoRepository,
     private readonly markService: MarkService,
+    @InjectRepository(UserLoginSession)
     private readonly userLoginSession: UserLoginSessionRepository,
+    @InjectRepository(SocketIo)
     private readonly socketIoGateway: SocketIoGateway,
   ) {}
 

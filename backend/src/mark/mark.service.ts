@@ -6,13 +6,16 @@ import { CreateMarkOutput } from './dto/create-mark.dto';
 import { SelectMarkOutput } from './dto/select-mark.dto';
 import { UpdateMarkInput, UpdateMarkOutput } from './dto/update-mark.dto';
 import { MarkRepository } from './repository/mark.repository';
+import { Mark } from './entity/mark.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Norm } from 'src/norm/entity/norm.entity';
 
 @Injectable()
 export class MarkService {
   constructor(
-    private readonly mark: MarkRepository,
-    private readonly norm: NormRepository,
-    private readonly user: UserRepository,
+    @InjectRepository(Mark) private readonly mark: MarkRepository,
+    @InjectRepository(Norm) private readonly norm: NormRepository,
+    @InjectRepository(User) private readonly user: UserRepository,
   ) {}
 
   async createMark(tester: User): Promise<CreateMarkOutput> {

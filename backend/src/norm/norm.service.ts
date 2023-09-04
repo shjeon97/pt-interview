@@ -13,14 +13,20 @@ import { OrientationRepository } from 'src/orientation/repository/orientation.re
 import { QuestionRepository } from 'src/question/repository/question.repository';
 import { GuideRepository } from 'src/guide/repository/guide.repository';
 import { ILike } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Norm } from './entity/norm.entity';
+import { Orientation } from 'src/orientation/entity/orientation.entity';
+import { Question } from 'src/question/entity/question.entity';
+import { Guide } from 'src/guide/entity/guide.entity';
 
 @Injectable()
 export class NormService {
   constructor(
-    private readonly norm: NormRepository,
+    @InjectRepository(Norm) private readonly norm: NormRepository,
+    @InjectRepository(Orientation)
     private readonly orientation: OrientationRepository,
-    private readonly question: QuestionRepository,
-    private readonly guide: GuideRepository,
+    @InjectRepository(Question) private readonly question: QuestionRepository,
+    @InjectRepository(Guide) private readonly guide: GuideRepository,
   ) {}
 
   async createNorm({

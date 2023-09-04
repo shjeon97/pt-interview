@@ -17,12 +17,15 @@ import {
   SearchGuideOutput,
 } from './dto/search-guide.dto';
 import { User, UserRole } from 'src/user/entity/user.entity';
+import { Guide } from './entity/guide.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Norm } from 'src/norm/entity/norm.entity';
 
 @Injectable()
 export class GuideService {
   constructor(
-    private readonly guide: GuideRepository,
-    private readonly norm: NormRepository,
+    @InjectRepository(Guide) private readonly guide: GuideRepository,
+    @InjectRepository(Norm) private readonly norm: NormRepository,
   ) {}
 
   async createGuide(

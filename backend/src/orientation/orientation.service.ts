@@ -25,12 +25,16 @@ import {
   SelectOrientationOutput,
 } from './dto/select-orientation.dto';
 import { OrientationRepository } from './repository/orientation.repository';
+import { Orientation } from './entity/orientation.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Norm } from 'src/norm/entity/norm.entity';
 
 @Injectable()
 export class OrientationService {
   constructor(
+    @InjectRepository(Orientation)
     private readonly orientation: OrientationRepository,
-    private readonly norm: NormRepository,
+    @InjectRepository(Norm) private readonly norm: NormRepository,
   ) {}
 
   async createOrientation(

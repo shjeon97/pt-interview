@@ -1,21 +1,14 @@
 import { Module } from '@nestjs/common';
 import { NormService } from './norm.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { NormRepository } from './repository/norm.repository';
 import { NormController } from './norm.controller';
-import { OrientationRepository } from 'src/orientation/repository/orientation.repository';
-import { GuideRepository } from 'src/guide/repository/guide.repository';
-import { QuestionRepository } from 'src/question/repository/question.repository';
+import { Norm } from './entity/norm.entity';
+import { Orientation } from 'src/orientation/entity/orientation.entity';
+import { Guide } from 'src/guide/entity/guide.entity';
+import { Question } from 'src/question/entity/question.entity';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([
-      NormRepository,
-      OrientationRepository,
-      GuideRepository,
-      QuestionRepository,
-    ]),
-  ],
+  imports: [TypeOrmModule.forFeature([Norm, Orientation, Guide, Question])],
   providers: [NormService],
   controllers: [NormController],
 })

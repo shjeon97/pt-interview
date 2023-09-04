@@ -1,18 +1,14 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MarkRepository } from 'src/mark/repository/mark.repository';
-import { UserRepository } from 'src/user/repository/user.repository';
-import { SocketIoRepository } from './repository/socket-io.repository';
 import { SocketIoGateway } from './socket-io.gateway';
+import { User } from 'src/user/entity/user.entity';
+import { Mark } from 'src/mark/entity/mark.entity';
+import { SocketIo } from './entity/socket-io.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([
-      UserRepository,
-      MarkRepository,
-      SocketIoRepository,
-    ]),
+    TypeOrmModule.forFeature([User, Mark, SocketIo]),
     JwtModule.register({
       secret: process.env.PRIVATE_KEY,
     }),

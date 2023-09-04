@@ -1,23 +1,15 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MarkRepository } from 'src/mark/repository/mark.repository';
-import { NormRepository } from 'src/norm/repository/norm.repository';
 import { User_Group } from 'src/user/entity/user_group.entity';
-import { UserRepository } from 'src/user/repository/user.repository';
 import { GroupService } from './group.service';
-import { GroupRepository } from './repository/group.repository';
 import { GroupController } from './group.controller';
+import { Group } from './entity/group.entity';
+import { Norm } from 'src/norm/entity/norm.entity';
+import { User } from 'src/user/entity/user.entity';
+import { Mark } from 'src/mark/entity/mark.entity';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([
-      GroupRepository,
-      NormRepository,
-      UserRepository,
-      MarkRepository,
-      User_Group,
-    ]),
-  ],
+  imports: [TypeOrmModule.forFeature([Group, Norm, User, Mark, User_Group])],
   providers: [GroupService],
   controllers: [GroupController],
 })

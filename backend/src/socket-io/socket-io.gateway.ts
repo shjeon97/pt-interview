@@ -14,15 +14,17 @@ import { UserRepository } from 'src/user/repository/user.repository';
 import { Not } from 'typeorm';
 import { SocketIo, State } from './entity/socket-io.entity';
 import { SocketIoRepository } from './repository/socket-io.repository';
+import { InjectRepository } from '@nestjs/typeorm';
+import { User } from 'src/user/entity/user.entity';
 
 @WebSocketGateway({ cors: true })
 export class SocketIoGateway
   implements OnGatewayConnection, OnGatewayDisconnect
 {
   constructor(
-    private readonly user: UserRepository,
+    @InjectRepository(User) private readonly user: UserRepository,
     // private readonly mark: MarkRepository,
-    private readonly socketIo: SocketIoRepository,
+    @InjectRepository(SocketIo) private readonly socketIo: SocketIoRepository,
     private readonly jwtService: JwtService,
   ) {}
 

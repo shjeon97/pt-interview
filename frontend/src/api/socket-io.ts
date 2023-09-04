@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 import { Jwt } from "../constant";
 
-export const socket = io("https://pt-interview.prod.kro.kr/", {
+export const socket = io("https://pt-interview.back-end.kro.kr/", {
   transports: ["websocket"],
 });
 // export const socket = io("http://localhost:4000/", {

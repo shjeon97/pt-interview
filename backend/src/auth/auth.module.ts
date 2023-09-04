@@ -3,10 +3,10 @@ import { APP_GUARD } from '@nestjs/core';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MarkRepository } from 'src/mark/repository/mark.repository';
 import { UserModule } from 'src/user/user.module';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { Mark } from 'src/mark/entity/mark.entity';
 
 @Global()
 @Module({})
@@ -20,7 +20,7 @@ export class AuthModule {
           secret: privateKey,
         }),
         UserModule,
-        TypeOrmModule.forFeature([MarkRepository]),
+        TypeOrmModule.forFeature([Mark]),
       ],
       providers: [
         {

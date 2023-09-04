@@ -20,12 +20,15 @@ import {
   SelectQuestionOutput,
 } from './dto/select-question.dto';
 import { QuestionRepository } from './repository/question.repository';
+import { Question } from './entity/question.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Norm } from 'src/norm/entity/norm.entity';
 
 @Injectable()
 export class QuestionService {
   constructor(
-    private readonly question: QuestionRepository,
-    private readonly norm: NormRepository,
+    @InjectRepository(Question) private readonly question: QuestionRepository,
+    @InjectRepository(Norm) private readonly norm: NormRepository,
   ) {}
 
   async createQuestion(

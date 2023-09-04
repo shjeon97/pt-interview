@@ -25,14 +25,17 @@ import {
   UploadGroupListInput,
   UploadGroupListOutput,
 } from './dto/upload-group-list.dto';
+import { Group } from './entity/group.entity';
+import { Norm } from 'src/norm/entity/norm.entity';
+import { Mark } from 'src/mark/entity/mark.entity';
 
 @Injectable()
 export class GroupService {
   constructor(
-    private readonly group: GroupRepository,
-    private readonly norm: NormRepository,
-    private readonly user: UserRepository,
-    private readonly mark: MarkRepository,
+    @InjectRepository(Group) private readonly group: GroupRepository,
+    @InjectRepository(Norm) private readonly norm: NormRepository,
+    @InjectRepository(User) private readonly user: UserRepository,
+    @InjectRepository(Mark) private readonly mark: MarkRepository,
     @InjectRepository(User_Group)
     private readonly user_group: Repository<User_Group>,
   ) {}

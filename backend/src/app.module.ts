@@ -69,7 +69,6 @@ import { SocketIo } from './socket-io/entity/socket-io.entity';
         User_Group,
         UserLoginSession,
         SocketIo,
-        '**/src/**/*{.ts,.js}',
       ],
     }),
     UserModule,

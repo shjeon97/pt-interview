@@ -5,13 +5,15 @@ import { MarkRepository } from 'src/mark/repository/mark.repository';
 import { UserRole } from 'src/user/entity/user.entity';
 import { UserService } from 'src/user/user.service';
 import { AllowedRole } from './role.decorator';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Mark } from 'src/mark/entity/mark.entity';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
   constructor(
     private readonly reflector: Reflector,
     private readonly userService: UserService,
-    private readonly mark: MarkRepository,
+    @InjectRepository(Mark) private readonly mark: MarkRepository,
     private readonly jwtService: JwtService,
   ) {}
   async canActivate(context: ExecutionContext) {

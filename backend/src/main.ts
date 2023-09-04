@@ -17,7 +17,7 @@ async function bootstrap() {
   app.useWebSocketAdapter(new SocketIoAdapter(app));
   if (process.env.NODE_ENV === 'prod') {
     app.enableCors({
-      origin: ['https://frontptinvtest.insahr.co.kr'],
+      origin: ['https://pt-interview.prod.kro.kr'],
       credentials: true,
     });
   } else {
