@@ -61,9 +61,9 @@ import { SocketIo } from './socket-io/entity/socket-io.entity';
       entities: [
         User,
         Norm,
+        Group,
         Orientation,
         Question,
-        Group,
         Guide,
         Mark,
         User_Group,

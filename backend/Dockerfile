@@ -7,5 +7,6 @@ RUN yarn build
 
 FROM node:14-alpine
 WORKDIR /app
+ENV NODE_ENV prod
 COPY --from=builder /app ./
 CMD ["yarn","start:prod"]
